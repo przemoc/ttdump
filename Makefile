@@ -26,7 +26,7 @@ endif
 all: $(addprefix $(BINS_DIR),$(BINS))
 
 ### Flags
-MUSTHAVE_FLAGS := -std=c99 -D_XOPEN_SOURCE=700 -Wall -Wpedantic
+MUSTHAVE_FLAGS := -std=c99 -D_XOPEN_SOURCE=700 -Wall -pedantic
 OPTIONAL_FLAGS := -Werror -Wextra -Os
 
 ### Install paths
