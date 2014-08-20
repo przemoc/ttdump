@@ -68,7 +68,9 @@ static inline int dumphex(char **dump, const char *ptr, size_t len,
 			buf[pos++] = ' ';
 		}
 		if (show_addr)
-			pos += sprintf(buf + pos, "%08"PRIx64"  ", (uint64_t)ptr - rel_addr * (uint64_t)orgptr);
+			pos += sprintf(buf + pos, "%08"PRIx64"  ",
+			                            (uint64_t)(uintptr_t)ptr
+			               - rel_addr * (uint64_t)(uintptr_t)orgptr);
 		for (int i = 0; i < 16; i++) {
 			sprintf(&buf[pos + i * 3], "%02x ", (unsigned)(uint8_t)ptr[i]);
 			if (show_char)
@@ -95,7 +97,9 @@ static inline int dumphex(char **dump, const char *ptr, size_t len,
 		buf[pos++] = ' ';
 	}
 	if (show_addr)
-		pos += sprintf(buf + pos, "%08"PRIx64"  ", (uint64_t)ptr - rel_addr * (uint64_t)orgptr);
+		pos += sprintf(buf + pos, "%08"PRIx64"  ",
+		                            (uint64_t)(uintptr_t)ptr
+		               - rel_addr * (uint64_t)(uintptr_t)orgptr);
 	for (int i = 0; i < endptr - ptr; i++) {
 		sprintf(&buf[pos + i * 3], "%02x ", (unsigned)(uint8_t)ptr[i]);
 		if (show_char)
