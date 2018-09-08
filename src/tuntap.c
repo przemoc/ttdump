@@ -83,7 +83,7 @@ int tt_open(char *dev, int flags)
 
 	if (flags & TT_FLG_IFUP) {
 		/* Yes, we do need dummy socket to perform below ioctl()s... */
-		int sk = socket(PF_INET, SOCK_DGRAM, 0);
+		sk = socket(PF_INET, SOCK_DGRAM, 0);
 		if (sk < 0) {
 			res = TT_ERR_NEWSOCKET;
 			goto tt_open_err;
